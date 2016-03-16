@@ -111,6 +111,6 @@ input.addEventListener('keyup', function(){
 	}
 })(window);
 ```
-注意上面的`window.insert = insert;`因为我用立即执行函数包裹住了所有的代码，使得insert函数没有暴露在全局作用域里，而jsonp只在window下调用callback函数，所以需要将insert写为window的方，大概就是这样→_→
+注意上面的`window.insert = insert;`因为我用立即执行函数包裹住了所有的代码，使得insert函数没有暴露在全局作用域里，而jsonp只在window下调用callback函数，所以需要将insert写为window的方法，大概就是这样→_→
 
 说了这么多，是时候放出没有任何css样式的[demo](http://demo.alkalixin.cn/jsonp)了，外貌协会请轻喷。。
