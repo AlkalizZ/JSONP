@@ -7,36 +7,25 @@
             body = document.getElementsByTagName('body')[0],
             ul = document.getElementById('ul');
 
-        var oldVal = encodeURI(input.value);
-
-        input.addEventListener('keyup', function(){
-
+        //监听input事件
+        input.addEventListener('input', function(){
             var val = encodeURI(input.value);
-
-            if(val == oldVal) return;
-
-            ul.innerHTML = '';
-            // script.src = 'http://suggestion.baidu.com/su?wd=我&cb=search';
-
+            ul.innerHTML = '';//清空上一次请求所插入的li
             jsonp({
                 url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ val + '&cb=',
                 time: 3000,
                 callback: function(json){
-                    var frag = document.createDocumentFragment();
+                    var htmlText = '';
                     for(var i = 0; i < json.s.length; i++){
-                        var li = document.createElement('li');
-                        li.innerHTML = json['s'][i];
-                        frag.appendChild(li);
+                        htmlText += '<li>' + json['s'][i] + '</li>';
                     }
-                    ul.appendChild(frag);
+                    ul.innerHTML = htmlText;
                 },
                 fail: function (mes) {
                     alert(mes);
                 }
             });
-
-            oldVal = val;
-        }, false);
+        });
 
         function jsonp(objects){
             objects = objects || {};
