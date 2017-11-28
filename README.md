@@ -199,4 +199,4 @@ function jsonp(objects){
 ```
 注意上面的`window[callbackName] = function(){};`因为我用立即执行函数包裹住了所有的代码，使得回调函数没有暴露在全局作用域里，而jsonp只在window下调用callback函数，所以需要将jsonp函数里的回调函数写为window的方法，大概就是这样😑
 
-说了这么多，是时候放出没有任何css样式的[demo](http://demo.alkalixin.cn/jsonp)了，外貌协会请轻喷。。
+说了这么多，是时候放出没有任何css样式的[demo](https://www.alkalixin.cn/demo/jsonp/)了，外貌协会请轻喷。。
